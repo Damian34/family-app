@@ -3,18 +3,17 @@ package com.family.api;
 import com.family.domain.FamilyService;
 import com.family.domain.data.FamilyDto;
 import com.family.domain.data.FamilySimpleData;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import lombok.AllArgsConstructor;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("family")
+@AllArgsConstructor
 public class FamilyAppController {
-
-    @Autowired
     private FamilyService familyService;
 
     @PostMapping("/create")

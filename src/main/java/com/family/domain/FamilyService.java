@@ -12,14 +12,13 @@ import java.util.UUID;
 import com.family.infra.db.entity.Family;
 import com.family.infra.db.entity.FamilyMember;
 import com.family.infra.error.vo.BadRequestException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import lombok.AllArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class FamilyService {
-    @Autowired
     private FamilyRepository familyRepo;
-    @Autowired
     private FamilyMemberRepository familyMemberRepo;
 
     public UUID createFamily(FamilyDto dto) {
