@@ -1,6 +1,6 @@
-package com.family.infra.error;
+package com.family.app.exception;
 
-import com.family.infra.error.vo.BadRequestException;
+import com.family.app.exception.vo.BadRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;

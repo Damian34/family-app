@@ -1,6 +1,6 @@
-package com.family.infra.db.repository;
+package com.family.app.infrastructure.repository;
 
-import com.family.infra.db.entity.Family;
+import com.family.app.infrastructure.entity.Family;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

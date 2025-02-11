@@ -1,6 +1,6 @@
-package com.family.infra.db.repository;
+package com.family.app.infrastructure.repository;
 
-import com.family.infra.db.entity.FamilyMember;
+import com.family.app.infrastructure.entity.FamilyMember;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FamilyMemberRepository extends JpaRepository<FamilyMember, UUID>{
 
-    public List<FamilyMember> findByFamilyId(UUID id);
+    List<FamilyMember> findByFamilyId(UUID id);
 
     @Transactional
     @Modifying
-    public void deleteByFamilyId(UUID id);
+    void deleteByFamilyId(UUID id);
 }

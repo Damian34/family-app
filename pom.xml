@@ -8,8 +8,8 @@
         <version>3.3.1</version>
         <relativePath/>
     </parent>
-    <groupId>com</groupId>
-    <artifactId>family</artifactId>
+    <groupId>com.family</groupId>
+    <artifactId>app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>family</name>
     <description>FamilyApp for Spring Boot</description>

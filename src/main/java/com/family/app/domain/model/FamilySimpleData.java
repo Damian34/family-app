@@ -1,6 +1,6 @@
-package com.family.domain.data;
+package com.family.app.domain.model;
 
-import com.family.infra.db.entity.Family;
+import com.family.app.infrastructure.entity.Family;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

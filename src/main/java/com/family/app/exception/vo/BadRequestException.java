@@ -1,4 +1,4 @@
-package com.family.infra.error.vo;
+package com.family.app.exception.vo;
 
 public class BadRequestException extends RuntimeException{
     public BadRequestException(String message){

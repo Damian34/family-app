@@ -13,6 +13,5 @@ Junit5\
 etc.
 
 the api can runs with docker,\
-i personally use intellij docker plugin that allow me in docker-composer.yml eg.
-to smoothly let me run only postgres image
-on which can run api locally, but then needs to uncomment accesses to db in application.yml file or add env.
+i personally use intellij docker plugin that allow me in docker-composer.yaml eg.\
+to smoothly let me run only postgres image to run api locally, but can also run full at docker.

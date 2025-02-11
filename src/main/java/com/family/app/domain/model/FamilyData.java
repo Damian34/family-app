@@ -1,7 +1,7 @@
-package com.family.domain.data;
+package com.family.app.domain.model;
 
-import com.family.infra.db.entity.Family;
-import com.family.infra.db.entity.FamilyMember;
+import com.family.app.infrastructure.entity.Family;
+import com.family.app.infrastructure.entity.FamilyMember;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,12 +12,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FamilyDto {
+public class FamilyData {
     private String familyName;
     private List<FamilyMemberData> members;
 
-    public static FamilyDto of(Family family, List<FamilyMember> members){
-        return new FamilyDto(
+    public static FamilyData of(Family family, List<FamilyMember> members){
+        return new FamilyData(
                 family.getName(),
                 members.stream()
                         .map(member -> new FamilyMemberData(member.getName(), member.getAge()))
@@ -29,7 +29,7 @@ public class FamilyDto {
         AtomicInteger infants = new AtomicInteger();
         AtomicInteger children = new AtomicInteger();
         AtomicInteger adults = new AtomicInteger();
-        members.forEach(member->{
+        members.forEach(member -> {
             int age = member.getAge();
             if (age >= 0 && age < 4) {
                 infants.getAndIncrement();

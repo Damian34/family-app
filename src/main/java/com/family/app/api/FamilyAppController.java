@@ -1,8 +1,8 @@
-package com.family.api;
+package com.family.app.api;
 
-import com.family.domain.FamilyService;
-import com.family.domain.data.FamilyDto;
-import com.family.domain.data.FamilySimpleData;
+import com.family.app.domain.FamilyService;
+import com.family.app.domain.model.FamilyData;
+import com.family.app.domain.model.FamilySimpleData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import lombok.AllArgsConstructor;
@@ -17,7 +17,7 @@ public class FamilyAppController {
     private FamilyService familyService;
 
     @PostMapping("/create")
-    public String createFamily(@RequestBody FamilyDto dto) {
+    public String createFamily(@RequestBody FamilyData dto) {
         return familyService.createFamily(dto).toString();
     }
 
@@ -27,7 +27,7 @@ public class FamilyAppController {
     }
 
     @GetMapping
-    public ResponseEntity<FamilyDto> getFamily(@RequestParam UUID id) {
+    public ResponseEntity<FamilyData> getFamily(@RequestParam UUID id) {
         return ResponseEntity.ok(familyService.getFamily(id));
     }
 

@@ -1,4 +1,4 @@
-package com.family.infra.error;
+package com.family.app.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,7 +1,7 @@
-package com.family;
+package com.family.app;
 
-import com.family.domain.data.FamilyDto;
-import com.family.domain.data.FamilySimpleData;
+import com.family.app.domain.model.FamilyData;
+import com.family.app.domain.model.FamilySimpleData;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +13,14 @@ import java.util.UUID;
 public interface TestFamilyClient {
 
     @PostMapping("/create")
-    public String createFamily(@RequestBody FamilyDto dao);
+    String createFamily(@RequestBody FamilyData dao);
 
     @DeleteMapping("/delete")
-    public void deleteFamily(@RequestParam UUID id);
+    void deleteFamily(@RequestParam UUID id);
 
     @GetMapping
-    public ResponseEntity<FamilyDto> getFamily(@RequestParam UUID id);
+    ResponseEntity<FamilyData> getFamily(@RequestParam UUID id);
 
     @GetMapping("/all")
-    public ResponseEntity<List<FamilySimpleData>> getAllFamily();
+    ResponseEntity<List<FamilySimpleData>> getAllFamily();
 }

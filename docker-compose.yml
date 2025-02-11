@@ -1,5 +1,3 @@
-version: '3.9'
-
 volumes:
   api-db:
     driver: local
@@ -27,6 +25,7 @@ services:
       dockerfile: dockerfile
     restart: always
     environment:
+      SPRING_PROFILES_ACTIVE: docker
       POSTGRES_HOST: postgres-db
       POSTGRES_PORT: 5432
       POSTGRES_NAME: postgres

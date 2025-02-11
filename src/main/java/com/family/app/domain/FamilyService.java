@@ -1,19 +1,17 @@
-package com.family.domain;
+package com.family.app.domain;
 
-import com.family.domain.data.FamilyDto;
-import com.family.domain.data.FamilySimpleData;
-import com.family.infra.db.repository.FamilyMemberRepository;
-import com.family.infra.db.repository.FamilyRepository;
-
+import com.family.app.domain.model.FamilyData;
+import com.family.app.domain.model.FamilySimpleData;
+import com.family.app.infrastructure.repository.FamilyMemberRepository;
+import com.family.app.infrastructure.repository.FamilyRepository;
+import com.family.app.infrastructure.entity.Family;
+import com.family.app.infrastructure.entity.FamilyMember;
+import com.family.app.exception.vo.BadRequestException;
+import org.springframework.stereotype.Service;
+import lombok.AllArgsConstructor;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-
-import com.family.infra.db.entity.Family;
-import com.family.infra.db.entity.FamilyMember;
-import com.family.infra.error.vo.BadRequestException;
-import org.springframework.stereotype.Service;
-import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
@@ -21,7 +19,7 @@ public class FamilyService {
     private FamilyRepository familyRepo;
     private FamilyMemberRepository familyMemberRepo;
 
-    public UUID createFamily(FamilyDto dto) {
+    public UUID createFamily(FamilyData dto) {
         Family family = dto.getFamilyEntity();
         UUID id = familyRepo.save(family).getId();
         dto.getMembers().forEach(member->{
@@ -31,12 +29,12 @@ public class FamilyService {
         return id;
     }
 
-    public FamilyDto getFamily(UUID id) {
+    public FamilyData getFamily(UUID id) {
         Optional<Family> familyOpt = familyRepo.findById(id);
         if(familyOpt.isPresent()){
             Family family = familyOpt.get();
             List<FamilyMember> members = familyMemberRepo.findByFamilyId(family.getId());
-            return FamilyDto.of(family, members);
+            return FamilyData.of(family, members);
         }
         throw new BadRequestException("not found family with given id");
     }
